@@ -1,0 +1,77 @@
+version: "3.8"
+
+services:
+  emqx:
+    image: emqx/emqx:latest
+    restart: always
+    ports:
+      - "8883:8883"
+      - "1883:1883"
+      - "8083:8083"
+      - "8084:8084"
+      - "18083:18083"
+    networks:
+      - iot
+  
+  influxdb:
+    image: influxdb:2
+    restart: always
+    ports:
+      - "8086:8086"
+    networks:
+      - iot
+    volumes:
+      - data:/var/lib/influxdb
+      - config:/etc/influxdb
+    environment:
+      - DOCKER_INFLUXDB_INIT_MODE=setup
+      - DOCKER_INFLUXDB_INIT_USERNAME=root
+      - DOCKER_INFLUXDB_INIT_PASSWORD=monitoringservice
+      - DOCKER_INFLUXDB_INIT_ORG=TFG
+      - DOCKER_INFLUXDB_INIT_BUCKET=loramesher
+      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=tfg-iotdata-auth-token
+  
+  telegraf:
+    image: telegraf
+    restart: always
+    volumes:
+      - ./telegraf.conf:/etc/telegraf/telegraf.conf:ro
+    depends_on:
+      - emqx
+      - influxdb
+    networks:
+      - iot
+  
+  grafana:
+    image: grafana/grafana
+    restart: always
+    ports:
+      - "3000:3000"
+    networks:
+      - iot
+    depends_on:
+      - influxdb
+    volumes:
+      - ./grafana:/etc/grafana/provisioning/
+
+        
+  query:
+    image: query_app:1.0
+    restart: always
+    build:
+      context: ./query
+      dockerfile: Dockerfile
+    ports:
+      - "3006:3006"
+    volumes:
+      - .:/query/app
+      - /query/app/node_modules
+    networks:
+      - iot
+
+networks:
+  iot:
+
+volumes:
+  data:
+  config:
