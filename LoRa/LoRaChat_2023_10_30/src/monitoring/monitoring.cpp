@@ -290,21 +290,27 @@ int Monitoring::getInMessages(){
     return temperature;
 }*/
 /*TEMPERATURA DIGITAL*/
-float Monitoring::getSensorValue(){
+/*float Monitoring::getSensorValue(){
     OneWire oneWire(4);
     DallasTemperature sensors(&oneWire);
     sensors.requestTemperatures();
     float temp = sensors.getTempCByIndex(0); 
     //String temperature = String(temp);
     return temp;
-}
+}*/
 
 /*LDR*/
-/*int Monitoring::getSensorValue(){
-    pinMode(34, INPUT);
-    int sensor = analogRead(34);
-    float voltage = (sensor / 4095.0) * 3.3; 
-    float temperatureFloat = (voltage - 0.5) * 100.0;
-    int temperature = round(temperatureFloat);
-    return temperature;
+float Monitoring::getSensorValue(){
+    pinMode(36, INPUT);
+    float rawValue = analogRead(36); // Lee el valor analógico del sensor
+    /*float voltage = rawValue * (3.3 / 4095.0); // Convierte a voltaje (para ESP32, ADC de 12 bits)
+    float lightIntensity = (rawValue / 4095.0) * 100.0; */ 
+    return rawValue;
+}
+
+/*Button*/
+/*float Monitoring::getSensorValue(){
+  int buttonState = digitalRead(4); // Lee el estado del botón
+  float buttonStateFloat = (float)buttonState;
+  return buttonStateFloat;
 }*/
