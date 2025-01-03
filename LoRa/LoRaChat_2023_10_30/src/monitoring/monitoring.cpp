@@ -277,8 +277,8 @@ int Monitoring::getInMessages(){
 }
 
 /*NO SENSOR*/
-/*int Monitoring::getSensorValue(){
-    return 
+/*float Monitoring::getSensorValue(){
+    return 0;
 }*/
 /*TEMPERATURA*/
 /*String Monitoring::getSensorValue(){
@@ -300,17 +300,18 @@ int Monitoring::getInMessages(){
 }*/
 
 /*LDR*/
-float Monitoring::getSensorValue(){
+/*float Monitoring::getSensorValue(){
     pinMode(36, INPUT);
     float rawValue = analogRead(36); // Lee el valor analógico del sensor
     /*float voltage = rawValue * (3.3 / 4095.0); // Convierte a voltaje (para ESP32, ADC de 12 bits)
-    float lightIntensity = (rawValue / 4095.0) * 100.0; */ 
+    float lightIntensity = (rawValue / 4095.0) * 100.0; 
     return rawValue;
-}
+}*/
 
 /*Button*/
-/*float Monitoring::getSensorValue(){
+float Monitoring::getSensorValue(){
   int buttonState = digitalRead(4); // Lee el estado del botón
+  buttonState = !buttonState;
   float buttonStateFloat = (float)buttonState;
   return buttonStateFloat;
-}*/
+}

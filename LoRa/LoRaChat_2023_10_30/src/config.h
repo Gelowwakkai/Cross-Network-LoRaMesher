@@ -97,7 +97,8 @@
 
 // MQTT configurationsuod
 #define MQTT_ENABLED
-#define MQTT_SERVER "192.168.1.41" //wlxb0487a877030
+//#define MQTT_SERVER "147.83.42.253" //wlxb0487a877030
+#define MQTT_SERVER "192.168.1.41"
 #define MQTT_PORT 1883
 #define MQTT_USERNAME "admin"
 #define MQTT_PASSWORD "public"
