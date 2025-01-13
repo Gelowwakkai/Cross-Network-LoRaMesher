@@ -277,9 +277,9 @@ int Monitoring::getInMessages(){
 }
 
 /*NO SENSOR*/
-/*float Monitoring::getSensorValue(){
+float Monitoring::getSensorValue(){
     return 0;
-}*/
+}
 /*TEMPERATURA*/
 /*String Monitoring::getSensorValue(){
     pinMode(34, INPUT);
@@ -309,9 +309,9 @@ int Monitoring::getInMessages(){
 }*/
 
 /*Button*/
-float Monitoring::getSensorValue(){
+/*float Monitoring::getSensorValue(){
   int buttonState = digitalRead(4); // Lee el estado del botón
   buttonState = !buttonState;
   float buttonStateFloat = (float)buttonState;
   return buttonStateFloat;
-}
+}*/

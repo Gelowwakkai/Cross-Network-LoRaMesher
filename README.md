@@ -37,9 +37,11 @@ sudo chmod +x /usr/local/bin/docker-compose
 Note that the boards are connected to sensors. If they are not connected, use a cable for each sensor pin and connect them to the corresponding pins on the boards (3.3v, gnd, and data). Currently, pin 4 has been used, so with the current program, it is sufficient to connect the 3 pins, keeping in mind that the data pin is pin 4. 
 If you want to change the pin, you also need to change the value of sensor_data_pin defined in the monitoring.cpp file. 
 
-The following image shows a guide for making the connection.
+The following images show a guide for making the connection.
 
 ![Connection Guide](connection_guide.png)
+
+![Connection Guide](connection_guide_2.png)
 
 In addition, depending on the board you are uploading the program, you must change some code (all in monitoring.cpp file):
 

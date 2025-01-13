@@ -90,15 +90,15 @@
 //#define WIFI_PASSWORD "AuJXRukf"
 //#define WIFI_SSID "JackHotspot"
 //#define WIFI_PASSWORD "12345678"
-//#define WIFI_SSID "MOVISTAR_3140"
-//#define WIFI_PASSWORD "E6wW7aQ9PMxm48tpRy3b"
-#define WIFI_SSID "invent"
-#define WIFI_PASSWORD "fakepassword"
+#define WIFI_SSID "MOVISTAR_3140"
+#define WIFI_PASSWORD "E6wW7aQ9PMxm48tpRy3b"
+//#define WIFI_SSID "invent"
+//#define WIFI_PASSWORD "fakepassword"
 
 // MQTT configuration
 #define MQTT_ENABLED
-//#define MQTT_SERVER "147.83.42.253" //wlxb0487a877030
-#define MQTT_SERVER "192.168.1.39"
+//#define MQTT_SERVER "147.83.42.206" 
+#define MQTT_SERVER "192.168.1.43" //wlxb0487a877030
 #define MQTT_PORT 1883
 #define MQTT_USERNAME "admin"
 #define MQTT_PASSWORD "public"
